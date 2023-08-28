@@ -40,8 +40,11 @@
                 document.querySelector('#sld').value = obj._slider;
                 document.querySelector('#time').value = obj._time;
                 document.querySelector('#date').value = obj._date;
+                document.querySelector('#alarm').checked = obj._alarm;
                 document.querySelector('#s_time').value = obj.s_time;
                 document.querySelector('#s_date').value = obj.s_date;
+                document.querySelector('#evday').checked = obj._evday;
+                document.querySelector('#wkday').checked = obj._wkday;
             }
             xhttp.send(null);
         }
@@ -270,7 +273,8 @@
         <label id="">Time: </label><br>
         <input type="date" name="date" disabled id="date" value="00-00-00"><br>
         <input type="time" name="time" disabled id="time" value="00:00"><br>
-        <label id="">Alarm: </label><br>
+        <label id="">Alarm: </label>
+        <input type="checkbox" name="alarm" id="alarm" onclick="_click(this)"><br>
         <input type="date" name="s_date" id="s_date" value="00-00-00" onchange="_click(this)"><br>
         <input type="time" name="s_time" id="s_time" value="00:00" onchange="_click(this)"><br>
         <label id="">Every Day: </label>
