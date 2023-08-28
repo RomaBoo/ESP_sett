@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>ESP32 File Server</title>
+    <script>
+        let xhr;
+        let idTimer1;
+        function onload() {
+            xhr = new (XMLHttpRequest);
+            Timer1();
+            idTimer1 = setInterval("Timer1()", 1000);
+        }
+        function Timer1() {
+            _led('color.html?start=0');
+        }
+        function _led(_param) {
+
+            // console.log(_param);
+            xhr.open("POST", _param, true);
+            xhr.responseType = "text";
+            xhr.onload = function (oEvent) {document.getElementById('info_table').innerHTML = xhr.response;}
+            xhr.send(null);
+        }
+    </script>
+    <style>
+        .button1 {
+            width: 150px;
+            height: 48px;
+            font-size: 17px;
+        }
+        .button1:hover {
+            border: 1px solid rgb(198, 198, 198);
+        }
+        .button1:active {
+            background: linear-gradient(#f59500, #f5ae00) #f59500;
+        }
+        table {
+            border: 1px solid rgb(58, 58, 58);
+        }
+        th {
+            border: 1px solid grey;
+        }
+        td {
+            border: 1px solid grey;
+            text-align: center;
+        }
+    </style>
+</head>
+<body onload="onload()">
+    <font size="5">
+        <div id="info_table"></div>
+    </font>
+    <br />
+    <div>
+        <input class="button1" style="color: #00ffff; background-color: #800000;" type="button" onclick="_led('color.html?red=0')"value="RED OFF" />
+        <input class="button1" style="color: #00ffff; background-color: #ff0000;" type="button" onclick="_led('color.html?red=1')"value="RED ON" />
+        <br /><br />
+        <input class="button1" style="color: #ff00ff; background-color: #008000;" type="button" onclick="_led('color.html?green=0')"value="GREEN OFF" />
+        <input class="button1" style="color: #ff00ff; background-color: #00ff00;" type="button" onclick="_led('color.html?green=1')"value="GREEN ON" />
+        <br /><br />
+        <input class="button1" style="color: #ffff00; background-color: #000080;" type="button" onclick="_led('color.html?blue=0')"value="BLUE OFF" />
+        <input class="button1" style="color: #ffff00; background-color: #0000ff;" type="button" onclick="_led('color.html?blue=1')"value="BLUE ON" />
+    </div>
+    <br /><br />
+</body>
+</html>

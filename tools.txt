@@ -1,0 +1,8 @@
+IDF_PATH
+d:\GCC\ESP32_IDF\esp-idf-v5.1.1
+
+IDF_TOOLS_PATH
+d:\GCC\ESP32\.espressif
+
+IDF_PYTHON_ENV_PATH
+d:\GCC\ESP32\.espressif\python_env\idf5.1_py3.11_env

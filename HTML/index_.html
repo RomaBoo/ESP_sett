@@ -1,0 +1,199 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <script>
+        
+        function _click(arg) {
+            var xhttp = new XMLHttpRequest(); var v;
+            if (arg.type == "checkbox") v = arg.checked ? '1' : '0';
+            else v = arg.value;
+            if (v.charAt(0) == '#') v = v.substring(1);
+
+            console.log("html_click?" + arg.name + "=" + v)
+            // xhttp.open("POST", "GP_click?" + arg.name + "=" + v, true); 
+            // xhttp.send();
+        }
+        
+    </script>
+    <div align="center" style="margin:auto;max-width:1000px;">
+        <style type="text/css">
+            #blockBack>select {
+                background: #13161a
+            }
+
+            body {
+                font-family: sans-serif;
+                background: #13161a;
+                color: #bbb;
+                margin-top: 15px;
+            }
+
+            hr {
+                width: 95%;
+                margin-bottom: 10px;
+                border: none;
+                border-top: 2px solid #394048;
+                max-width: 400px;
+            }
+
+            h2 {margin: 8px 0;}
+
+            span {
+                font-size: 20px;
+            }
+
+            label {
+                font-size: 20px;
+                margin: 0 5px;
+            }
+
+            .sldBlock {
+                width: 90%;
+                display: flex;
+                flex-direction: row;
+                justify-content: right;
+                align-items: center
+            }
+
+            .sldLbl {
+                font-size: 15px;
+            }
+
+            input[type="range"],
+            select,
+            textarea {
+                border-radius: 8px;
+                max-width: 350px;
+                padding: 3px 10px;
+                color: #bbb;
+                border: none;
+                background-color: #2a2d35;
+                vertical-align: middle;
+                position: relative;
+                margin: 2px 0 7px 0;
+                font-size: 20px;
+                height: 40px;
+                cursor: pointer;
+            }
+
+            input[type="range"] {
+                width: 60%;
+                height: 30px;
+                padding: 0px;
+            }
+
+            .led {margin: 20px 1px;}
+
+            .led:after {
+                width: 25px;
+                height: 25px;
+                border-radius: 25px;
+                top: -10px;
+                left: -9px;
+                position: relative;
+                content: '';
+                display: inline-block;
+                border: 2px solid;
+                border-color: #858585;
+                background-color: #121212
+            }
+
+            .led:checked:after {box-shadow: 0px 0px 10px 4px;}
+
+            .led.red:checked:after {
+                border-color: red !important;
+                color: red !important;
+                background-color: red !important;
+            }
+
+            .led.green:checked:after {
+                border-color: limegreen !important;
+                color: limegreen !important;
+                background-color: limegreen !important;
+            }
+
+            .led.blue:checked:after {
+                border-color: blue !important;
+                color: blue !important;
+                background-color: blue !important;
+            }
+
+            .switch {
+                margin: 10px 0 5px;
+                position: relative;
+                display: inline-block;
+                width: 60px;
+                height: 34px
+            }
+
+            .switch input {
+                opacity: 0;
+                width: 0;
+                height: 0
+            }
+
+            .slider {
+                border-radius: 34px;
+                position: absolute;
+                cursor: pointer;
+                top: -5px;
+                left: 0;
+                right: 0;
+                bottom: 5px;
+                background-color: #54545485;
+                -webkit-transition: .1s;
+                transition: .1s
+            }
+
+            .slider:before {
+                border-radius: 50%;
+                position: absolute;
+                content: "";
+                height: 26px;
+                width: 26px;
+                left: 4px;
+                bottom: 4px;
+                background-color: #fff;
+                -webkit-transition: .1s;
+                transition: .1s
+            }
+
+            input:checked+.slider {
+                background-color: #2196f3
+            }
+
+            input:checked+.slider:before {
+                -webkit-transform: translateX(26px);
+                -ms-transform: translateX(26px);
+                transform: translateX(26px)
+            }
+        </style>
+        
+        <h2 id="t1">Light</h2>
+        <hr>
+        <label id="">Led RGB: </label>
+        <br>
+        <label id="">R: </label>
+        <input class="led red" type="radio" disabled name="led" id="led">
+        <label id="">G: </label>
+        <input class="led green" type="radio" disabled name="led" id="led">
+        <label id="">B: </label>
+        <input class="led blue" type="radio" disabled name="led" id="led">
+        <br>
+        <br>
+        <label class="sldLbl">0</label><input type="range" name="sld" id="sld" value="50" min="0" max="100" step="1" onchange="_click(this)">
+        <label class="sldLbl">100</label><br>
+        <br>
+        <label id="">Light On: </label>
+        <label class="switch"><input type="checkbox" name="sw" id="sw" onclick="_click(this)">
+            <span class="slider"></span></label><br>
+    </div>
+</body>
+
+</html>

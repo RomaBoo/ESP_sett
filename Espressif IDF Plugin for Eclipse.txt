@@ -1,0 +1,5 @@
+Espressif
+
+https://github.com/espressif/idf-eclipse-plugin
+
+https://dl.espressif.com/dl/idf-eclipse-plugin/updates/latest/
